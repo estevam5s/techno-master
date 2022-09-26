@@ -1,0 +1,59 @@
+/* modal do carrinho */
+.carrinho_modal {
+    display: block !important;
+}
+
+/* modal do carrinho */
+.carrinho_modal .carrinho_container {
+    padding: var(--gap-small) var(--gap-small) var(--gap-small) var(--gap-small) !important;
+}
+
+/* cada item do carrinho */
+.carrinho_modal .carrinho_dados {
+    grid-column: 1 !important;
+    max-width: 100vw !important;
+}
+
+/* cada item do carrinho */
+.carrinho_modal .carrinho_item {
+    padding: var(--gap-tiny) 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px;
+}
+
+/* titulo do carrinho */
+.carrinho_modal .carrinho_titulo {
+    margin-bottom: var(--gap-tiny);
+    padding-bottom: var(--gap-smaller);
+}
+
+/* botao de remover do carrinho */
+.carrinho_modal .carrinho_remover {
+    font-size: var(--font-size-small);
+}
+
+/* preço do item */
+.carrinho_modal .carrinho_preco {
+    text-align: right;
+}
+
+/* preço total no carrinho */
+.carrinho_modal .carrinho_total {
+    text-align: right;
+    margin-bottom: var(--gap-smaller);
+    padding: var(--gap-tiny) 50px var(--gap-tiny) 0;
+}
+
+/* botão de finalizar compra */
+.carrinho_modal .carrinho_finalizar {
+    display: block;
+    margin-left: auto;
+    padding: var(--gap-tiny) var(--gap-smaller);
+}
+
+@media screen and (max-width: 900px) {
+    /* modal do carrinho */
+    .carrinho_modal .carrinho_container {
+        padding: var(--gap-smaller) !important;
+    }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Techno</title>
+
+    <link rel="stylesheet" href="style/style.css">
+
+</head>
+<body>
+
+    <div id="app">
+        
+        <!-- header -->
+        <header class="header">
+            <img class="logo" src="./assets//techno.svg" alt="Logo Techno">
+            <div class="carrinho" @click="carrinhoAtivo = true">{{ carrinhoTotal | numeroPreco }} | {{ carrinho.length }}</div>
+        </header>
+        
+
+        <!-- produtos --> 
+        <section class="produtos">
+            <div class="produto" v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id">
+                <img class="produto_img" :src="item.img" :alt="item.nome"></img>
+                <div class="produto_info">
+                    <span class="produto_preco">{{ item.preco | numeroPreco }}</span>
+                    <h2 class="produto_titulo titulo">{{ item.nome }}</h2>
+                </div>
+            </div>
+        </section>
+
+
+        <!--  modal do produto aberto -->
+        <section class="modal" v-if="produto" @click="fecharModal">
+            <div class="modal_container with_image">
+                <div class="modal_img">
+                    <img :src="produto.img" :alt="produto.nome" ></img>
+                </div>
+                <div class="modal_dados">
+                    <button class="modal_fechar" @click="produto = false">X</button>
+                    <span class="modal_preco">{{ produto.preco | numeroPreco }}</span>
+                    <h2 class="modal_titulo titulo">{{ produto.nome }}</h2>
+                    <p>{{ produto.descricao }}</p>
+                    <button class="modal_btn botao" v-if="produto.estoque > 0" @click="adicionarItem">Adicionar item</button>
+                    <button class="modal_btn botao" v-else disabled>Produto esgotado</button>
+                </div>
+                <div class="avaliacoes">
+                    <h2 class="avaliacoes_subtitulo subtitulo">Avaliações</h2>
+                    <ul>
+                        <li class="avaliacao" v-for="avaliacao in produto.avaliacoes">
+                            <p class="avaliacao_descricao">{{ avaliacao.descricao }}</p>
+                            <p class="avaliacao_usuario">{{ avaliacao.nome }} | {{ avaliacao.estrelas }} estrelas</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- modal do carrinho -->
+        <section class="carrinho_modal modal" :class="{ativo: carrinhoAtivo}" v-if="carrinhoAtivo" @click="fecharCarrinho">
+            <div class="carrinho_container modal_container">
+                <div class="carrinho_dados modal_dados">
+                    <button class="carrinho_fechar modal_fechar" @click="carrinhoAtivo = false">X</button>
+                    <h2 class="carrinho_titulo titulo">Carrinho</h2>
+                    <div v-if="carrinho.length > 0">
+                        <ul class="carrinho_lista">
+                            <li class="carrinho_item" v-for="(item, index) in carrinho">
+                                <p>{{ item.nome }}</p>
+                                <p class="carrinho_preco">{{ item.preco | numeroPreco }}</p>
+                                <button class="carrinho_remover" @click="removerItem(index)">X</button>
+                            </li>
+                        </ul>
+                        <p class="carrinho_total">{{ carrinhoTotal | numeroPreco }}</p>
+                        <button class="carrinho_finalizar botao">Finalizar Compra</button>
+                    </div>
+                    <p v-else>O carrinho está vazio.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Alerta -->
+        <div class="alerta" :class="{ ativo: alertaAtivo}">
+            <p class="alerta_mensagem">{{ mensagemAlerta }}</p>
+        </div>
+
+
+    </div>
+    
+    <script src="./app.js"></script>
+</body>
+</html>

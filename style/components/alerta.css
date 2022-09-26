@@ -1,0 +1,24 @@
+.alerta {
+    position: absolute;
+    top: var(--gap-smaller);
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+.alerta.ativo {
+    display: block;
+    animation: fadeInDown .3s forwards;
+}
+
+/* mensagem do alerta */
+.alerta > .alerta_mensagem{
+    background: var(--color-secondary);
+    display: inline-block;
+    padding: var(--gap-smaller);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 3px 4px rgba(0,0,0,.1), 0 4px 10px rgba(0,0,0,.2);    
+}
+

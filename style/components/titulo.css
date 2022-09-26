@@ -1,0 +1,10 @@
+.titulo {
+    font-size: var(--font-size-large);
+    line-height: 1;
+}
+
+@media screen and (max-width: 900px) {
+    .titulo {
+        font-size: var(--font-size-smaller);
+    }
+}

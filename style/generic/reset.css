@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box !important;
+}
+
+body, h1, h2, ul, li, p {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(
+        to right, 
+        var(--color-primary) 30%, 
+        var(--color-secondary) 30%
+        );
+    font-family: var(--font-family-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+#app {
+    padding: 0 var(--gap-medium);
+}
+
+@media screen and (max-width: 900px) {
+    body {
+        background: linear-gradient(
+            to right, 
+            var(--color-primary) 40%, 
+            var(--color-secondary) 40%
+            );
+    }
+
+    #app {
+        padding: 0 var(--gap-tiny);
+    }
+}

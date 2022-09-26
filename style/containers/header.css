@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80vw;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+/* logo do header */
+.header .logo {
+    width: 80px;
+}
+
+/* carrinho de compras */
+.header .carrinho {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .carrinho::after {
+    display: inline-block;
+    width: var(--gap-smaller);
+    height: var(--gap-smaller);
+    margin-left: 10px;
+}

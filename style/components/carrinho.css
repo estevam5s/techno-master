@@ -1,0 +1,26 @@
+.carrinho::after {
+    content: "";
+    background: url("../../assets/carrinho.svg") no-repeat center center;
+}
+
+/* cada item do carrinho */
+.carrinho_modal .carrinho_item {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+/* titulo do carrinho */
+.carrinho_modal .carrinho_titulo {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* botao de remover do carrinho */
+.carrinho_modal .carrinho_remover {
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* preço total no carrinho */
+.carrinho_modal .carrinho_total {
+    border-bottom:  2px solid var(--color-primary);
+}
